@@ -15,10 +15,7 @@
 
 package org.noise_planet.noisemodelling.scripts.Experimental_Matsim
 
-
-
 import groovy.transform.CompileStatic
-
 import org.h2gis.utilities.wrapper.ConnectionWrapper
 import org.matsim.api.core.v01.Coord
 import org.matsim.api.core.v01.Scenario
@@ -29,7 +26,6 @@ import org.matsim.facilities.ActivityFacility
 import org.matsim.facilities.MatsimFacilitiesReader
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-
 import java.sql.*
 import groovy.sql.Sql
 
@@ -47,10 +43,8 @@ inputs = [
         name: 'Projection identifier',
         title: 'Projection identifier',
         description: 'Original projection identifier (also called SRID) of your table.' +
-                'It should be an EPSG code, a integer with 4 or 5 digits (ex: 3857 is Web Mercator projection).' +
-                '</br><b> Default value : 4326 </b> ',
-        min: 0,
-        max: 1,
+                'It should be an EPSG code, a integer with 4 or 5 digits (ex: 3857 is Web Mercator projection).',
+        default: 4326,
         type: Integer.class
     ],
     outTableName: [
@@ -71,10 +65,6 @@ outputs = [
             type: String.class
     ]
 ]
-
-
-
-
 
 
 // main function of the script

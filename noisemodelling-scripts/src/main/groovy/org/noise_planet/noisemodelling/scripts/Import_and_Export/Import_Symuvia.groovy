@@ -1,13 +1,22 @@
 /**
+ * NoiseModelling is an open-source tool designed to produce environmental noise maps on very large urban areas. It can be used as a Java library or be controlled through a user friendly web interface.
+ *
+ * This version is developed by Université Gustave Eiffel and CNRS
+ * <http://noise-planet.org/noisemodelling.html>
+ *
+ * NoiseModelling is distributed under GPL 3 license. You can read a copy of this License in the file LICENCE provided with this software.
+ *
+ * Contact: contact@noise-planet.org
+ *
+ */
+
+/**
  * @Author Aumond Pierre, Université Gustave Eiffel
  */
 
 package org.noise_planet.noisemodelling.scripts.Import_and_Export
 
-
-
 import org.apache.commons.io.FilenameUtils
-
 import org.h2gis.api.EmptyProgressVisitor
 import org.h2gis.api.ProgressVisitor
 import org.h2gis.utilities.GeometryTableUtilities
@@ -48,7 +57,7 @@ inputs = [
                 title      : 'Symuvia output file SRID',
                 description: 'Symuvia output file SRID </br> </br>' +
                              '&#128736; Default value: French Lambert 93 (<a href="https://epsg.io/2154" target="_blank">2154</a>)',
-                min        : 0, max: 1,
+                default    : 2154,
                 type       : Integer.class
         ],
         tableName: [
@@ -69,11 +78,6 @@ outputs = [
                 type       : String.class
         ]
 ]
-
-
-
-
-
 
 
 def exec(Connection connection, input) {

@@ -17,7 +17,6 @@
 
 package org.noise_planet.noisemodelling.scripts.Import_and_Export
 
-
 import org.apache.commons.io.FilenameUtils
 import org.h2gis.api.EmptyProgressVisitor
 import org.h2gis.api.ProgressVisitor
@@ -37,7 +36,6 @@ import org.h2gis.utilities.dbtypes.DBUtils
 import org.noise_planet.noisemodelling.jdbc.utils.DataBaseUtilities
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-
 import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -65,16 +63,15 @@ inputs = [
                         'This entry is optional because many formats already include the projection and you can also import files without geometry attributes.</br> </br>' +
                         'If the table is geometric and if this parameter is not filled and:</br>' +
                         '- the file has a .prj file associated: the SRID is deduced from the .prj </br>' +
-                        '- the file has no .prj file associated: we apply the WGS84 (<a href="https://epsg.io/4326" target="_blank">EPSG:4326</a>) code </br> </br>' +
-                        '&#128736; Default value: <b>4326 </b> ',
-                type       : Integer.class,
-                min        : 0, max: 1
+                        '- the file has no .prj file associated: we apply the WGS84 (<a href="https://epsg.io/4326" target="_blank">EPSG:4326</a>) code',
+                default    : 4326,
+                type       : Integer.class
         ],
         tableName: [
                 name       : 'Output table name',
                 title      : 'Name of created table',
                 description: 'Name of the table you want to create from the file. </br> </br>' +
-                        '&#128736; Default value: <b>it will take the name of the file without its extension</b> (special characters will be removed and whitespaces will be replace by an underscore.',
+                             '&#128736; Default value: <b>it will take the name of the file without its extension</b> (special characters will be removed and whitespaces will be replace by an underscore.',
                 min        : 0, max: 1,
                 type       : String.class
         ],
@@ -83,7 +80,7 @@ inputs = [
                 title        : 'Table exists operation',
                 description  : 'What to do if a table with the same name already exists ?',
                 allowedValues: ["Overwrite", "Skip import", "Raise error"],
-                default      : "Overwrite",
+                default      : 'Overwrite',
                 type         : String.class
         ]
 ]
